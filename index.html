@@ -23,14 +23,28 @@
 		    	<li>Groupe : [....]</li>
 		    	<li>Professeur : [....]</li>
 		    </ul>
+		  </div>
 
+		  <div>
+		  	<form name="form" action="jeux/quiz.html">
+			   	<select name="option" id="main-select">
+
+			    </select>
+
+				<button type="submit">
+					Commencer
+				</button>
+			</form>
 		  </div>
 		  
 		</div>
 		<script>
 			$(document).ready(function(){
 
+
 				for (const quizId in quizzes) {
+					// créer et ajouter des options à l'élement select qui a l'ID "main-select"  
+				    $('#main-select').append($('<option>', {value:quizId, text:quizzes[quizId].title}));
 
 				    //Afficher dans la console
 				    console.log(quizId +" - "+quizzes[quizId].title);
