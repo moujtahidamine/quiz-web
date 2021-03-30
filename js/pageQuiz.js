@@ -6,5 +6,7 @@ $(document).ready(function(){
 
 	$("#quiz-title").text(quizzes[selectedValue].title)
 	$('#quiz-description').text(quizzes[selectedValue].description);
+
+	console.log("quizId : "+ selectedValue);
 	
 });
