@@ -6,7 +6,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" href="style/styles.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/data/quizzes.js"></script>
+	
 
 	<body>
 		<div class="main">
@@ -25,5 +27,16 @@
 		  </div>
 		  
 		</div>
+		<script>
+			$(document).ready(function(){
+
+				for (const quizId in quizzes) {
+
+				    //Afficher dans la console
+				    console.log(quizId +" - "+quizzes[quizId].title);
+				}
+			  
+			});
+		</script>
 	</body>
 </html>
