@@ -26,9 +26,8 @@ function afficher_quiz() {
     quizzes[quizId].data.forEach(function(item, i) {
 
     	$('#quiz-content').append($('<hr>'));
-    	$('#quiz-content').append($('<p>', {text:"Q "+(i+1)}));
     	$('#quiz-content').append($('<img>', {src:"../images/"+item.image, id:"image"}));
-    	$('#quiz-content').append($('<h3>', {text:item.question, id:"question"}));
+    	$('#quiz-content').append($('<h4>', {text:"Question N°"+(i+1)+" :"+item.question, id:"question"}));
     	
     	item.reponses.forEach(function(resp, index){
 
