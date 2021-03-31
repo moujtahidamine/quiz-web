@@ -13,7 +13,8 @@
 	<script type="text/javascript" src="js/data/couples.js"></script>
 	<script type="text/javascript" src="js/data/webg2.js"></script>
 	<script type="text/javascript" src="js/data/quizzes.js"></script>
-	
+
+	<script type="text/javascript" src="js/main.js"></script>
 
 	<body>
 		<div class="main">
@@ -43,18 +44,5 @@
 		  </div>
 		  
 		</div>
-		<script>
-			$(document).ready(function(){
-
-				for (const quizId in quizzes) {
-					// créer et ajouter des options à l'élement select qui a l'ID "main-select"  
-				    $('#main-select').append($('<option>', {value:quizId, text:quizzes[quizId].title}));
-
-				    //Afficher dans la console
-				    console.log(quizId +" - "+quizzes[quizId].title);
-				}
-			  
-			});
-		</script>
 	</body>
 </html>

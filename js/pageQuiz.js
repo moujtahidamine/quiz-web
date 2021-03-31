@@ -16,10 +16,41 @@ $(document).ready(function(){
 	console.log("quizId : "+ quizId);
 	console.log("------------------");
 
-	quizzes[selectedValue].data.forEach(function(item) {
-
-	    //Afficher les données du bon questionnaire(quiz d'ID quizID) dans la console :
-	    console.log(item.question);
-	});
+	afficher_quiz();
+	
 });
+
+function afficher_quiz() {
+    let quizId = getUrlParameter('option');
+
+    quizzes[quizId].data.forEach(function(item, i) {
+
+    	$('#quiz-content').append($('<hr>'));
+    	$('#quiz-content').append($('<p>', {text:"Q "+(i+1)}));
+    	$('#quiz-content').append($('<img>', {src:"../images/"+item.image, id:"image"}));
+    	$('#quiz-content').append($('<h3>', {text:item.question, id:"question"}));
+    	
+    	item.reponses.forEach(function(resp, index){
+
+		    $('#quiz-content').append(
+		      $('<input>').prop({
+		        type: 'radio',
+		        name: 'response',
+		        value: index
+		      })
+		    ).append(
+		      $('<label>').prop({
+		        for: 'response'
+		      }).html(resp)
+		    ).append(
+		      $('<br>')
+		    );
+		
+    	})
+   	
+		console.log(item.question);
+	});
+
+
+}
 
