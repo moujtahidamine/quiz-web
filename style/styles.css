@@ -27,7 +27,11 @@ input {
     list-style: none;
 }
 
-#quiz-content{
+#quiz-content {
+    text-align: left;
+}
+
+#results {
     text-align: left;
 }
 

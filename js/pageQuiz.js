@@ -6,6 +6,7 @@ $(document).ready(function(){
 	$("#quiz-container").hide();
 
 	let selectedValue = getUrlParameter('option');  
+	$("#quiz-id").val(selectedValue)
 
 	//Affichage des données du quiz choisi :
 	$("#quiz-title").text(quizzes[selectedValue].title)
@@ -18,11 +19,13 @@ $(document).ready(function(){
 
 	afficher_quiz();
 	
+	console.log("------------------");	
 });
+
 
 function afficher_quiz() {
     let quizId = getUrlParameter('option');
-
+    $('quizId').val(quizId);
     quizzes[quizId].data.forEach(function(item, i) {
 
     	$('#quiz-content').append($('<hr>'));
@@ -33,8 +36,9 @@ function afficher_quiz() {
 
 		    $('#quiz-content').append(
 		      $('<input>').prop({
+		      	id : item.id,
 		        type: 'radio',
-		        name: 'response',
+		        name: 'r'+i, // Chaque groupe de réponse doit avoir le même "name"  
 		        value: index
 		      })
 		    ).append(
@@ -48,8 +52,6 @@ function afficher_quiz() {
     	})
    	
 		console.log(item.question);
+        
 	});
-
-
 }
-
