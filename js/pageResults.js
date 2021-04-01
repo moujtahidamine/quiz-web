@@ -15,9 +15,7 @@ function afficher_results(){
 	if(quizId === "mer" || quizId === "jeux"){
 
 	    quizzes[quizId].data.forEach(function(item, i) {
-		
-			// Stocker l'indice de la i ème réponse dans la variable reponse :
-			var liste_reponses = [];
+	
 			let reponse;
 			let param = getUrlParameter('r'+i); // depuis les paramétres ayant le nom  { r0, r1, ..., ri }
 			
@@ -65,8 +63,8 @@ function afficher_results(){
 		    quizzes[quizId].data.forEach(function(item, i) {
 		
 				// Stocker l'indice de la i ème réponse dans la variable reponse :
-				var liste_reponses = []; // liste des réponses globale 
-				var checked = []; // pour stocker les indices des réponses choisis 
+				let liste_reponses = []; // liste des réponses globale 
+				let checked = []; // pour stocker les indices des réponses choisis 
 				let checked_string = "";// pour stocker les réponses concaténés par ;
 				let bonneReponsesList = ""; // pour stocker les bonnes réponses concaténés par ;
 
