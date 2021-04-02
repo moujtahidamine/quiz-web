@@ -123,11 +123,11 @@ function isFormValid(){
 			      return $(this).val();
 			    }).get(); 
 
-				// si "checked_values" est vide, alors la question courante n'a pas de réponse
-				if(checked_values.length === 0){
+				// si "checked_values" a strictement moins que 2 valeurs, alors la question courante n'a pas de réponse
+				if(checked_values.length < 2){
 					// affichage d'un message d'erreur!
 					let msg =  $('<span>');
-					msg.text("Champ obligatoire!");
+					msg.text("Cette question nécessite au moins 2 réponse!");
 					msg.css('color', 'red');
 					$('#question-'+div.id).after('<br>').after(msg);
 					
