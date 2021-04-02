@@ -116,7 +116,7 @@ function isFormValid(){
 		}
 		else{
 			// Pour le quiz qui a des réponse à choix multiple
-			if(quizId === "couples" || quizId === "webg2"){
+			if(quizId === "couples"){
 
 				// Pour chaque element du quiz, stocker les indices cochés dans une liste "checked_values"
 				var checked_values = $("input[name=r"+i+"]:checkbox:checked").map(function(){
@@ -135,6 +135,28 @@ function isFormValid(){
 				else
 					// Stocker seulement les questions ayant des réponses (checked_values.length !== 0)
 					reponses_choix_multiple.push(checked_values);				    
+			}
+			else{
+				if(quizId === "webg2"){
+
+					// Pour chaque element du quiz, stocker les indices cochés dans une liste "checked_values"
+					var checked_values = $("input[name=r"+i+"]:checkbox:checked").map(function(){
+				      return $(this).val();
+				    }).get(); 
+
+					// si "checked_values" est vide, alors la question courante n'a pas de réponse
+					if(checked_values.length === 0){
+						// affichage d'un message d'erreur!
+						let msg =  $('<span>');
+						msg.text("Cette question nécessite au moins UNE réponse!");
+						msg.css('color', 'red');
+						$('#question-'+div.id).after('<br>').after(msg);
+						
+					}
+					else
+						// Stocker seulement les questions ayant des réponses (checked_values.length !== 0)
+						reponses_choix_multiple.push(checked_values);	
+				}
 			}	
 		}
 
